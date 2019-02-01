@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, Route } from 'react-router-dom';
+import Play from './pages/Play';
+import Matches from './pages/Matches';
 
 class App extends Component {
+  state = {
+    //this text is just for testing that props work.
+    text: 'I am text from state!',
+    //ideas for default state
+    AnimalList: [],
+    ChosenList: []
+  };
   render() {
+    const { text, animals, matches } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='App'>
+        <h1>Animal Tinder</h1>
+        <ul className='header'>
+          <li>
+            <Link to='/'>Play</Link>
+          </li>
+          <li>
+            <Link to='/matches'>Your Matches</Link>
+          </li>
+        </ul>
+        <hr />
+        <Route
+          exact
+          path='/'
+          //Passing props to routed components is a bit odd. Found this code from  ere: https://tylermcginnis.com/react-router-pass-props-to-components/
+          render={props => (
+            <Play
+              {...props}
+              text={text}
+              animals={animals}
+              matches={matches}
+              {...props}
+            />
+          )}
+        />
+        <Route
+          exact
+          path='/matches'
+          render={props => <Matches {...props} text={text} {...props} />}
+        />
       </div>
     );
   }
