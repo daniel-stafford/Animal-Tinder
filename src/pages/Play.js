@@ -23,9 +23,21 @@ class Play extends Component {
           onSwipeLeft={this.onSwipeLeft}
           onSwipeRight={this.onSwipeRight}
           onDoubleTap={this.onDoubleTap}
-          style={{ border: 'none' }}
+          style={{
+            border: 'none',
+            maxHeight: '900vh'
+          }}
         >
-          <img src={animal.urls.small} alt={animal.description} />
+          <img
+            src={animal.urls.small}
+            alt={animal.description}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '80%',
+              display: 'block',
+              margin: '0 auto'
+            }}
+          />
           <h1 style={{ textAlign: 'center' }}>Swipe here!</h1>
         </Card>
       );
