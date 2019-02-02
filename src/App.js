@@ -9,16 +9,19 @@ class App extends Component {
   state = {
     //ideas for default state
     animals: [],
-    matches: [],
     dataLoaded: false,
     loadingText: 'Loading..',
+    matches: [],
+    numResults: 50,
+    query: 'puppy',
     title: 'Animal Adoption Tinder'
   };
 
   //call API
   async componentDidMount() {
+    const { query, numResults } = this.state;
     const response = await unsplash.get('/search/photos', {
-      params: { query: ' puppy' }
+      params: { query, per_page: numResults }
     });
     this.setState({ animals: response.data.results, dataLoaded: true });
   }
@@ -57,7 +60,7 @@ class App extends Component {
           exact
           path='/'
           d
-          //Passing props to routed components is a bit odd. Found this code from  ere: https://tylermcginnis.com/react-router-pass-props-to-components/
+          //Passing props to routed components is a bit odd. Found this code from here: https://tylermcginnis.com/react-router-pass-props-to-components/
           render={props =>
             dataLoaded ? (
               <Play
@@ -76,7 +79,7 @@ class App extends Component {
         <Route
           exact
           path='/matches'
-          render={props => <Matches {...props} text={text} {...props} />}
+          render={props => <Matches {...props} text={text} />}
         />
       </div>
     );
