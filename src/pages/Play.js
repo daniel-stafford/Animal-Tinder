@@ -4,6 +4,7 @@ import { Card, CardWrapper } from 'react-swipeable-cards';
 
 class Play extends Component {
   onDoubleTap = () => {
+    //todo: add description
     console.log('You double tapped. More info perhaps?');
   };
   render() {
@@ -32,7 +33,7 @@ class Play extends Component {
               margin: '0 auto'
             }}
           />
-          <h1 style={{ textAlign: 'center' }}>Swipe here!</h1>
+          <h1>Swipe here!</h1>
         </Card>
       );
     });
