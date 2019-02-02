@@ -25,6 +25,13 @@ class App extends Component {
 
   //todo: componentDidUnmount???
 
+  handleSwipeLeft = id => {
+    console.log('App got left on', id);
+  };
+
+  handleSwipeRight = id => {
+    console.log('App got right on', id);
+  };
   render() {
     const {
       title,
@@ -58,6 +65,8 @@ class App extends Component {
                 text={text}
                 animals={animals}
                 matches={matches}
+                handleSwipeLeft={this.handleSwipeLeft}
+                handleSwipeRight={this.handleSwipeRight}
               />
             ) : (
               <Loading {...props} loadingText={loadingText} />
