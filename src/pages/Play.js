@@ -9,6 +9,9 @@ class Play extends Component {
   onSwipeLeft = () => {
     console.log('You swiped left. A possible pet!');
   };
+  onDoubleTap = () => {
+    console.log('You double tapped. More info perhaps?');
+  };
   render() {
     const { animals } = this.props;
     console.log('animals', animals);
@@ -19,8 +22,11 @@ class Play extends Component {
           key={animal.id}
           onSwipeLeft={this.onSwipeLeft}
           onSwipeRight={this.onSwipeRight}
+          onDoubleTap={this.onDoubleTap}
+          style={{ border: 'none' }}
         >
-          <img src={animal.urls.thumb} alt={animal.description} />
+          <img src={animal.urls.small} alt={animal.description} />
+          <h1 style={{ textAlign: 'center' }}>Swipe here!</h1>
         </Card>
       );
     });

@@ -23,6 +23,8 @@ class App extends Component {
     this.setState({ animals: response.data.results, dataLoaded: true });
   }
 
+  //todo: componentDidUnmount???
+
   render() {
     const {
       title,
