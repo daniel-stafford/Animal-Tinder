@@ -3,27 +3,19 @@ import React, { Component } from 'react';
 import { Card, CardWrapper } from 'react-swipeable-cards';
 
 class Play extends Component {
-  onSwipeRight = animal => {
-    console.log("You swiped right. I guess that's a pass.");
-    this.props.handleSwipeRight(animal);
-  };
-  onSwipeLeft = animal => {
-    console.log('You swiped left. A possible pet!');
-    this.props.handleSwipeLeft(animal);
-  };
   onDoubleTap = () => {
     console.log('You double tapped. More info perhaps?');
   };
   render() {
-    const { animals } = this.props;
+    const { animals, handleSwipeLeft, handleSwipeRight } = this.props;
     console.log('animals', animals);
     const deck = animals.map(animal => {
       return (
         //todo: figure out a way to fill the card  with the image but still be swipeable.  Images that fill the card seems to screw up the swiping.
         <Card
           key={animal.id}
-          onSwipeLeft={() => this.onSwipeLeft(animal)}
-          onSwipeRight={() => this.onSwipeRight(animal)}
+          onSwipeLeft={() => handleSwipeLeft(animal)}
+          onSwipeRight={() => handleSwipeRight(animal)}
           onDoubleTap={this.onDoubleTap}
           style={{
             border: 'none',

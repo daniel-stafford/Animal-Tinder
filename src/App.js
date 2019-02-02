@@ -28,13 +28,24 @@ class App extends Component {
 
   //todo: componentDidUnmount???
 
-  handleSwipeLeft = animal => {
+  handleSwipeLeft = (animal) => {
     console.log('App got left on', animal.id);
+    this.setState((state) => ({
+      animals: state.animals.filter((item) => item.id !== animal.id)
+    }))
   };
 
-  handleSwipeRight = animal => {
+  handleSwipeRight = (animal) => {
     console.log('App got right on', animal.id);
+    const matches = this.state.matches;
+    matches.push(animal)
+    this.setState((state) => ({ 
+      matches, 
+      animals: state.animals.filter((item) => item.id !== animal.id)}));
+    console.log(this.state.matches);
+    
   };
+
   render() {
     const {
       title,
@@ -57,9 +68,7 @@ class App extends Component {
         </ul>
         <hr />
         <Route
-          exact
-          path='/'
-          d
+          exact path='/'
           //Passing props to routed components is a bit odd. Found this code from here: https://tylermcginnis.com/react-router-pass-props-to-components/
           render={props =>
             dataLoaded ? (
@@ -77,9 +86,12 @@ class App extends Component {
           }
         />
         <Route
-          exact
-          path='/matches'
-          render={props => <Matches {...props} text={text} />}
+          exact path='/matches'
+          render={props => 
+            <Matches 
+              {...props} 
+              matches={matches} 
+              text={text} />}
         />
       </div>
     );

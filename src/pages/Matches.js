@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Play extends Component {
-  render() {
-    const { text } = this.props;
-    return (
+const Matches = ({ matches, text }) => (
       <div>
         <h2>Your Matches!</h2>
         <p>{text}</p>
+        <div className="matches-list">
+          {matches.map((animal) => (
+            <img key={animal.id} alt={animal.description} src={animal.urls.thumb} style={{
+              maxWidth: '200px',
+              maxHeight: '100px',
+              margin: '10px',
+            }}/>
+          ))};
+        </div>
       </div>
-    );
-  }
-}
+);
 
-export default Play;
+export default Matches;
