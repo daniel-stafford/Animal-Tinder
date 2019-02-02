@@ -7,29 +7,34 @@ import Loading from './components/Loading';
 
 class App extends Component {
   state = {
-    //this text is just for testing that props work.
-    text: 'I am text from state!',
     //ideas for default state
     animals: [],
     matches: [],
     dataLoaded: false,
-    loadingText: 'Loading..'
+    loadingText: 'Loading..',
+    title: 'Animal Adoption Tinder'
   };
 
   //call API
   async componentDidMount() {
     const response = await unsplash.get('/search/photos', {
-      params: { query: 'funny animals' }
+      params: { query: ' puppy' }
     });
     this.setState({ animals: response.data.results, dataLoaded: true });
-    console.log(this.state.animalList);
   }
 
   render() {
-    const { text, animals, matches, dataLoaded, loadingText } = this.state;
+    const {
+      title,
+      text,
+      animals,
+      matches,
+      dataLoaded,
+      loadingText
+    } = this.state;
     return (
       <div className='App'>
-        <h1>Animal Tinder</h1>
+        <h1>{title}</h1>
         <ul className='header'>
           <li>
             <Link to='/'>Play</Link>
