@@ -28,12 +28,12 @@ class App extends Component {
 
   //todo: componentDidUnmount???
 
-  handleSwipeLeft = id => {
-    console.log('App got left on', id);
+  handleSwipeLeft = animal => {
+    console.log('App got left on', animal.id);
   };
 
-  handleSwipeRight = id => {
-    console.log('App got right on', id);
+  handleSwipeRight = animal => {
+    console.log('App got right on', animal.id);
   };
   render() {
     const {
