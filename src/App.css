@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: #58B19F;
+  background-color: rgb(54, 212, 181);
 }
 
 h1 {
@@ -47,3 +47,27 @@ h1 {
   flex-wrap: wrap;
 }
 
+.one-match {
+  position: relative;
+}
+.remove-from-matches {
+  position: absolute;
+  right: 0px;
+  bottom: 12px;
+  width: 25px;
+  height: 25px;
+  border-radius: 30%;
+  background: white;
+  padding: 0;
+}
+
+.remove-from-matches:focus {
+  outline: none;
+}
+
+.trash-icon {
+  color: rgb(54, 212, 181);
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+}

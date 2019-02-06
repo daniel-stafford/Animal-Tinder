@@ -45,6 +45,12 @@ class App extends Component {
       animals: state.animals.filter((item) => item.id !== animal.id)}));
   };
 
+  removeFromMatches = (animal) => {
+    this.setState((state) => ({
+      matches: state.matches.filter((item) => item.id !== animal.id)
+    }))
+  }
+
   render() {
     const {
       title,
@@ -90,7 +96,8 @@ class App extends Component {
           render={props => 
             <Matches 
               {...props} 
-              matches={matches} 
+              matches={matches}
+              removeFromMatches={this.removeFromMatches} 
               text={text} />}
         />
       </div>
