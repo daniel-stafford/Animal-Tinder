@@ -28,12 +28,12 @@ class Play extends Component {
             alt={animal.description}
             style={{
               maxWidth: '100%',
-              maxHeight: '80%',
+              maxHeight: '100%',
               display: 'block',
               margin: '0 auto'
             }}
+            draggable="false"
           />
-          <h1>Swipe here!</h1>
         </Card>
       );
     });
