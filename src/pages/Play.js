@@ -9,7 +9,7 @@ class Play extends Component {
   };
   render() {
     const { animals, handleSwipeLeft, handleSwipeRight } = this.props;
-    console.log('animals', animals);
+    // console.log('animals', animals);
     const deck = animals.map(animal => {
       return (
         //todo: figure out a way to fill the card  with the image but still be swipeable.  Images that fill the card seems to screw up the swiping.

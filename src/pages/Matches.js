@@ -7,7 +7,6 @@ const Matches = ({ matches, text, removeFromMatches }) => (
         <p>{text}</p>
         <div className="matches-list">
           {matches.map((animal) => (
-            //todo: add remove button
             <div className="one-match">
               <img key={animal.id} alt={animal.description} src={animal.urls.thumb} style={{
                 maxWidth: '300px',
